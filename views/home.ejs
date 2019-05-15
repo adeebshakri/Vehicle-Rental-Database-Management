@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<title>Welcome To Rento-o-now</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/mine.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.transitions.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">  
+  <link href="css/magnific-popup.css" rel="stylesheet">  
+  <link href="css/gallery-1.css" rel="stylesheet">
+    <!-- <link href="css/styles.css" rel="stylesheet"> -->
+<body>
+ 
+
+<div class="w3-sidebar w3-bar-block w3-light-grey" style="width:25%">
+  <div class="w3-container w3-white">
+   <i class="fa fa-car" aria-hidden="true" style="font-size: 3rem; position: relative;padding-top: 1rem;"></i>
+    <div class="logoSection"> <a class="navbar-brand" href="/" style="color: #FFB74D;font-size: 3rem; position: absolute;top: -1rem;left: 4rem;">Rent-o-now</a>
+      <span class="caption" style="position: absolute;top: 2.5rem;left: 6rem">Vroom!</span>
+    </div>
+    <h4 ></h4>
+  </div>
+  <img src="images/rent.jpg" alt="car" height="300px" width="500px">
+  <a href="/home?task=profile" class="w3-bar-item w3-button"><h4>Profile</h4></a>
+  <a href="/home?task=bookcar" class="w3-bar-item w3-button"><h4>BookCar</h4></a>
+   <a href="/home?task=bookbike" class="w3-bar-item w3-button"><h4>BookBike</h4></a>
+  <a href="/home?task=bookings" class="w3-bar-item w3-button"><h4>YourBookings</h4></a>
+  <a href="/home?task=feedback" class="w3-bar-item w3-button"><h4>Feedback</h4></a>
+  <a href="/home?task=contactus" class="w3-bar-item w3-button"><h4>ContactUs</h4></a>
+  <a href="/home?task=logout" class="w3-bar-item w3-button"><h4>Logout</h4></a>
+</div>
+
+
+
+<div style="margin-left:24%">
+
+<div class="w3-container">
+
+<div class="container">
+  <div class="row">
+
+</div>
+
+    <div class="col-md-3 ">
+         <div class="list-group" id="list" >
+           <% if( (typeof(task)=='undefined' || task=='profile')&& typeof(result)!='undefined') {%>
+           <div class="col-md-9">
+           <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Your Profile</h2>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form>
+                              <div class="form-group row">
+                                <label for="username" class="col-4 col-form-label">Name</label> 
+                                <div class="col-8">
+                                  <p><%=result[0][0].Name%></p>
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="name" class="col-4 col-form-label">License No</label> 
+                                <div class="col-8">
+                                  <p><%=result[0][0].LicenseNo%></p>
+                                   </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="mobile" class="col-4 col-form-label">Mobile</label> 
+                                <div class="col-8">
+                                  <p><%=result[0][0].Phno%></p>
+                                   </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="email" class="col-4 col-form-label">Address</label> 
+                                <div class="col-8">
+                                  <p><%=result[0][0].Address%></p>
+                                   </div>
+                              </div>
+                              
+                              <div class="form-group row">
+                                <label for="password" class="col-4 col-form-label">Email</label> 
+                                <div class="col-8">
+                                  <p><%=result[0][0].EmailID%></p>
+                                  </div>
+                              </div>
+                             
+                              <div class="form-group row">
+                                <label for="address" class="col-4 col-form-label">Customer ID</label> 
+                                <div class="col-8">
+                                  <p><%=result[0][0].cid%></p>
+                                   </div>
+                              </div>
+                            </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+  </div>
+  <% } %>
+
+
+
+<!-- 
+  BOOKCAR -->
+
+
+  
+
+
+  <% if(typeof(task)!='undefined' && task=='bookcar' && typeof(result)=='undefined') {%>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="1">
+<div class="container">
+  <h2>Pick A Car</h2>
+  <p>Choose a car according to your comfort:</p>                                          
+  
+
+  <form method="POST" action="/home?task=bookcar">
+    
+    <!-- <div class="form-group row"> -->
+    <label> Select CarType:</label>
+    <!-- <div class="col-8">   -->
+
+    <select name="car_type">
+      <option value="micro">Micro</option>
+      <option value="mini">Mini</option>
+      <option value="prime">Prime</option>
+      <option value="suv">SUV</option>
+      <option value="luxory">Luxory</option>
+    </select>
+  <!-- </div> -->
+ <!-- </div> -->
+ <br>
+
+    <div class="form-group row">
+    <label>From Date</label><input name="from" type="date" required />
+    <div class="col-8">
+    </div>
+    </div>
+    <div class="form-group row">
+    <label>To Date</label><input name="to" type="date" required />
+    <div class="col-8">
+    </div>
+    </div>
+
+     <div class="form-group row">
+     <div class="offest-4 col-8">
+    <button name="submit" type="submit" class="btn btn-primary">Search Cars</button>
+  </div>
+</div>
+  </form>
+    </div>
+  </div>    
+ </div>
+ </div>
+</div>
+
+   <%}%>
+
+
+
+
+  <% if(typeof(task)!='undefined' && task=='bookcar' && typeof(result)!='undefined' && typeof(status)=='undefined') {%>
+    
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<div class="1">
+<div class="container" method='POST'>
+  <h2>Pick A Car</h2>
+  <p>Choose a car according to your comfort:</p>
+
+
+  <% for(var i=0;i<result.length;i++){%>
+  <h4><%=result[i].car_name%></h4><h6 style="color:blue"><%=day*result[i].version_price%>/-</h6><p><button><a href="/home?task=bookcar&id=<%=cid%>&from=<%=data.from%>&to=<%=data.to%>&carid=<%=result[i].car_id%>&fare=Paid:<%=day*result[i].version_price%>/-">Pay Now</a></button><br><br></p>
+  <%}%>                                         
+    </div>
+  </div>    
+ </div>
+ </div>
+</div>
+
+
+  
+
+   <%}%>
+
+
+<% if(typeof(task)!='undefined' && task=='bookcar' && typeof(result)!='undefined' && typeof(status)!='undefined' && status=='success') {%>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<div class="1">
+<div class="container" method='POST'>
+  <h2>Booking Success</h2>
+  <p>Booking Details are:</p>
+
+   <p>booking id:<%=result[0].book_id%></p>
+      <p>customer id:<%=result[0].cid%></p>
+      <p>car_id:<%=result[0].car_id%></p>
+   <p>From:<%=result[0].fromdate%></p>
+   <p>to:<%=result[0].todate%></p>
+      <p>Payment_status::<%=result[0].book_status%></p>
+
+
+
+
+
+
+    </div>
+  </div>    
+ </div>
+ </div>
+</div>
+
+
+  
+
+   <%}%>
+
+
+
+
+
+<% if(typeof(task)!='undefined' && task=='bookcar' && typeof(result)!='undefined' && typeof(status)!='undefined' && status!='success') {%>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<div class="1">
+<div class="container" method='POST'>
+  <h2 style="color: red">Booking Not Allowed. Give a valid From and To Date!</h2>
+ 
+    </div>
+  </div>    
+ </div>
+ </div>
+</div>
+
+
+  
+
+   <%}%>
+
+
+<!-- BOOKBIKE -->
+
+
+   <% if(typeof(task)!='undefined' && task=='bookbike' && typeof(result)=='undefined') {%>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="1">
+<div class="container">
+  <h2>Pick A Bike</h2>
+  <p>Choose a bike according to your comfort:</p>                                          
+  
+
+  <form method="POST" action="/home?task=bookbike">
+    
+
+
+    <div class="form-group row">
+    <label>From Date</label><input name="from" type="date" required />
+    <div class="col-8">
+    </div>
+    </div>
+    <div class="form-group row">
+    <label>To Date</label><input name="to" type="date" required />
+    <div class="col-8">
+    </div>
+    </div>
+
+     <div class="form-group row">
+     <div class="offest-4 col-8">
+    <button name="submit" type="submit" class="btn btn-primary">Search Bikes</button>
+  </div>
+</div>
+  </form>
+
+    </div>
+  </div>    
+ </div>
+ </div>
+</div>
+
+\
+  
+
+   <%}%>
+
+
+
+
+  <% if(typeof(task)!='undefined' && task=='bookbike' && typeof(result)!='undefined' && typeof(status)=='undefined') {%>
+    
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<div class="1">
+<div class="container" method='POST'>
+  <h2>Pick A Bike</h2>
+  <p>Choose a bike according to your comfort:</p>
+
+
+  <% for(var i=0;i<result.length;i++){%>
+  <h4><%=result[i].bike_name%></h4><h6 style="color: blue"><%=day*result[i].bikeversion_price%></h6><p><button><a href="/home?task=bookbike&id=<%=cid%>&from=<%=data.from%>&to=<%=data.to%>&bikeid=<%=result[i].bike_id%>&fare=Paid:<%=day*result[i].bikeversion_price%>/-">Pay Now</a></button><br><br></p>
+  <%}%>                                         
+    </div>
+  </div>    
+ </div>
+ </div>
+</div>
+
+
+  
+
+   <%}%>
+
+
+<% if(typeof(task)!='undefined' && task=='bookbike' && typeof(result)!='undefined' && typeof(status)!='undefined' && status=='success') {%>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<div class="1">
+<div class="container" method='POST'>
+  <h2>Booking Success</h2>
+  <p>Booking Details are:</p>
+
+   <p>bookingbike id:<%=result[0].bookbike_id%></p>
+      <p>customer id:<%=result[0].cid%></p>
+      <p>bike_id:<%=result[0].bike_id%></p>
+   <p>From:<%=result[0].fromdate%></p>
+   <p>to:<%=result[0].todate%></p>
+      <p>Payment_status::<%=result[0].bookbike_status%></p>
+
+    </div>
+  </div>    
+ </div>
+ </div>
+</div>
+
+
+  
+
+   <%}%>
+
+
+<% if(typeof(task)!='undefined' && task=='bookbike' && typeof(result)!='undefined' && typeof(status)!='undefined' && status!='success') {%>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<div class="1">
+<div class="container" method='POST'>
+  <h2>Booking Not Allowed
+  </h2>
+  
+    </div>
+  </div>    
+ </div>
+ </div>
+</div>
+
+
+  
+
+   <%}%>
+
+
+
+
+   <% if(typeof(task)!='undefined' && task=='contactus') {%>
+   
+
+
+
+   <section id="our-team">
+        <div class="container">
+            <div class="section-header">
+                
+            </div>
+
+
+        </div>
+    </section><!--/#our-team-->
+<section id="our-team">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="text-align-last: left;" class="section-title text-center wow fadeInDown">The Best Team</h2>
+                <p style="text-align-last: left;" class="text-center wow fadeInDown">We are open to suggestions and would be glad to talk to you.<br>Contact us by the details enclosed.</p>
+            </div>
+
+           
+                <div class="col-md-3 col-sm-6">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
+                        <div class="team-img">
+                            <img class="img-responsive" src="images/team/02.jpg" alt="">
+                        </div>
+                        <div class="team-info">
+                            <h3>Abhinav Kumar</h3>
+                            <span>Co-Founder</span>
+                        </div>  
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="200ms">
+                        <div class="team-img">
+                            <img class="img-responsive" src="images/team/03.jpg" alt="">
+                        </div>
+                        <div class="team-info">
+                            <h3>Adeeb Shakri</h3>
+                            <span>Co-Founder</span>
+                        </div>  
+                    </div>
+                </div>
+               
+
+        </div>
+    </section><!--/#our-team-->
+
+
+
+
+
+   <section  id="contact-us">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Contact Us</h2>
+                <p class="text-center wow fadeInDown">Reach us by our email_id:-<br>adeebshakri@gmail.com<br>abhinavkumar@yahoo.com<br>contact no: 1800-1011011801</p>
+        </div>r
+    </section><!--/#contact-us-->
+
+
+
+
+
+
+
+   <%}%>
+
+</div>
+
+<% if(typeof(task)!='undefined' && task=='bookings') {%>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 420%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>CAR BOOKINGS:</h2>
+<table>
+  <tr>
+    <th>Car ID</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Booking ID</th>
+    <th>Car Model</th>
+    <th>Booking Status</th>
+  </tr>
+  <% results.forEach(function(result) { %>
+  <tr>
+    <td><%= result.car_id %></td>
+    <td><%= result.fromdate %></td>
+    <td><%= result.todate %></td>
+    <td><%= result.book_id %></td>
+    <td><%= result.car_name %></td>
+    <td><%= result.book_status%></td>
+  </tr>
+  <% }) %>
+
+</table>
+
+<br><br>
+<h2>BIKE BOOKINGS:</h2>
+<table>
+  <tr>
+    <th>Bike ID</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Booking ID</th>
+     <th>Bike Model</th>
+    <th>Booking Status</th>
+  </tr>
+  <% results2.forEach(function(result) { %>
+  <tr>
+    <td><%= result.bike_id %></td>
+    <td><%= result.fromdate %></td>
+    <td><%= result.todate %></td>
+    <td><%= result.bookbike_id %></td>
+    <td><%= result.bike_name %></td>
+    <td><%= result.bookbike_status%></td>
+  </tr>
+  <% }) %>
+  </table>
+
+</body>
+</html>
+
+
+<%}%>
+
+
+
+<% if(typeof(task)!='undefined' && task=='feedback') {%>
+   
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<div style="width: 300%" class="container">
+  <h2>Feedback:</h2><br>
+  
+  <form method="POST" action="/home?task=feedback">
+    <div class="form-group">
+      <label for="usr" name="subject">Subject</label>
+      <input name="subject" type="text" class="form-control" id="usr">
+    </div>
+    <div class="form-group">
+      <label for="fb" name="fbarea">Enter your valuable feedback here:</label>
+      <input  name="fbarea" type="textarea" class="form-control" id="fb"><br>
+      <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
+
+
+
+   <%}%> 
+
+   <% if(typeof(task)!='undefined' && task=='feedback_sub') {%>
+   
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<div style="width: 300%" class="container">
+  <h2>Feedback:</h2><br>
+  
+  <form method="POST" action="/home?task=feedback">
+    <div class="form-group">
+      <label for="usr" name="subject">Subject</label>
+      <input name="subject" type="text" class="form-control" id="usr">
+    </div>
+    <div class="form-group">
+      <label for="fb" name="fbarea">Enter your valuable feedback here:</label>
+      <input  name="fbarea" type="textarea" class="form-control" id="fb"><br>
+      <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+
+    </div>
+  </form>
+  <p style='color: red'>YOUR FEEDBACK SUBMITTED SUCCESSFULLY</p>
+</div>
+
+</body>
+</html>
+
+
+
+   <%}%> 
+      
+</body>
+</html>
