@@ -15,6 +15,5 @@ The project on command node app.js loads the project on the localhost.
 
 Built With:
 HTML & CSS
-Javascript
 Nodejs
 mySQL
